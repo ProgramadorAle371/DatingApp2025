@@ -9,14 +9,14 @@
                 <h1 class="text-5xl font-bold">Find your soul mate!</h1>
                 <p class="py-6">Login and find love</p>
                 <div class="flex itenms-center gap-3">               
-                    <button class="btn btn-primary btn-lg" (click)="showRegisterMode()">Register</button>
+                    <button class="btn btn-primary btn-lg" (click)="showRegisterMode(true)">Register</button>
                     <button class="btn btn-info btn-lg">Learn more...</button>
                 </div>            
             </div>
         </div>
     } @else {
         <div class="text-2x1 text-center flex justify-center">
-            <app-register class="w-full" [membersFromHome]="membersFromApp"/>
+            <app-register class="w-full" [membersFromHome]="membersFromApp" (cancelRegister)="showRegisterMode($event)"/>
         </div>
     }
 </div>
