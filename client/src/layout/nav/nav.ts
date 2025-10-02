@@ -1,8 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../../core/services/account-service';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { RouterLinkActive } from "@angular/router";
+import { ToastService } from '../../core/services/toast-service';
 
 @Component({
   selector: 'app-nav',
@@ -13,17 +14,24 @@ import { RouterLinkActive } from "@angular/router";
 export class Nav {
   protected accountService = inject(AccountService);
   protected creds: any = {};
+  private router = inject(Router);
+  private toast = inject(ToastService);
 
   login(): void {
     this.accountService.login(this.creds).subscribe({
       next: response => {
-        console.log(response);
+        this.router.navigateByUrl('/members');
         this.creds = {};
+        this.toast.success("Login successful");
       },
-      error: error => console.log(error)
+      error: error => {
+        this.toast.error(error.error);
+      }
     });
   }
+
   logout(): void {
     this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 }
