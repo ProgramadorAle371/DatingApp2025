@@ -5,10 +5,10 @@ namespace API.Controllers;
 public class ErrorController : BaseApiController
 {
     [HttpGet("bad-request")]
-    public IActionResult GetBadRequest() //401
+    public IActionResult GetBadRequest() //400
     {
-        var inputParm = -1;
-        if (inputParm <= 0) throw new ArgumentOutOfRangeException(nameof(inputParm));
+        //var inputParm = -1;
+        //if (inputParm <= 0) throw new ArgumentOutOfRangeException(nameof(inputParm));
         
         return BadRequest("Bad request");
     }
