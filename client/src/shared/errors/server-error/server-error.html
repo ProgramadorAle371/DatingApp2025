@@ -1,1 +1,12 @@
-<p>server-error works!</p>
+<div class="card bg-base-100 gap-3 w-4xl mx-auto flex flex-col items-center rounded-xl shadow-xl p-10">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#f87171" width="48" height="48" class="size-12">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+
+    <h1 class="card-title text-4xl justify-center">Server Error</h1>
+    <p class="card-body text-xl text-center">{{error()?.message}}</p>
+    <button class="btn btn-primary" (click)="detailsToggle()">Details</button>
+    @if (showDetails){
+        <div>{{error()?.details}}</div>
+    }
+</div>
