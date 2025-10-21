@@ -17,6 +17,8 @@ public class Seed
         var seedUsersData = await File.ReadAllTextAsync("Data/UserSeedData.json");
         var seedUsers = JsonSerializer.Deserialize<List<SeedUserDto>>(seedUsersData);
 
+
+
         if (seedUsers == null)
         {
             Console.WriteLine("No seed data unavailable");
