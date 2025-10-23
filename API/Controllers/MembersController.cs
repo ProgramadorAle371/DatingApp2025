@@ -4,6 +4,7 @@ using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using API.Mappers;
 
 namespace API.Controllers;
 
@@ -25,7 +26,7 @@ public class MembersController(IMembersRepository membersRepository) : BaseApiCo
 
         if (member == null) return NotFound();
 
-        return member;
+        return member.ToResponse();
     }
 
     [HttpGet("{id}/photos")]
