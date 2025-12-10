@@ -7,12 +7,11 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-member-detail',
-  imports: [AsyncPipe, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './member-detail.html',
   styleUrl: './member-detail.css'
 })
 export class MemberDetail implements OnInit {
-  private membersService = inject(MembersService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   protected member = signal<Member | undefined>(undefined);
