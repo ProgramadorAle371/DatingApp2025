@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-test-errors',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TestErrors {
   private http = inject(HttpClient);
-  baseUrl = "https://localhost:5001/api/"
+  baseUrl = "environment.apiUrl;"
   validationErrors = signal<string[]>([]);
 
   get400ValidationError(): void {
