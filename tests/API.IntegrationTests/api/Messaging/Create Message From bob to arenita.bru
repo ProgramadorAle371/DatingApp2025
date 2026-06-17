@@ -1,0 +1,27 @@
+meta {
+  name: Create Message From bob to arenita
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/messages
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{otherToken}}
+}
+
+body:json {
+  {
+      "recipientId": "arenita-id",
+      "content": "Test message 2 from calamardo to arenita"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

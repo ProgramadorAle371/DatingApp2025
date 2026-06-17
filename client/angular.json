@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "skipTests": true, 
+          "skipTests": false,
           "path": "src"
         },
         "@schematics/angular:service": {
@@ -16,12 +16,24 @@
         },
         "@schematics/angular:guard": {
           "skipTests": false,
-          "path": "src/core/guard"
+          "path": "src/core/guards"
         },
         "@schematics/angular:interceptor": {
           "skipTests": false,
           "path": "src/core/interceptors"
-        }       
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": false,
+          "path": "src"
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": false,
+          "path": "src/core/pipes"
+        },
+        "@schematics/angular:directive": {
+          "skipTests": false,
+          "path": "src/shared/directives"
+        }
       },
       "root": "",
       "sourceRoot": "src",
@@ -61,14 +73,20 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "options": {
-            "ssl":true,
+            "ssl": true,
             "sslCert": "./ssl/localhost.pem",
             "sslKey": "./ssl/localhost-key.pem"
           },

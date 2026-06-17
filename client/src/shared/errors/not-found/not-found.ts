@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
 })
 export class NotFound {
   private location = inject(Location);
-  
+
   goBack(): void {
     this.location.back();
   }

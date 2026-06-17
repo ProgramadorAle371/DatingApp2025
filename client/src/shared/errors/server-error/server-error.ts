@@ -15,10 +15,11 @@ export class ServerError {
 
   constructor() {
     const navigation = this.router.currentNavigation();
-    this.error.set(navigation?.extras?.state?.['error']);
+    this.error.set(navigation?.extras?.state?.["error"]);
   }
 
   detailsToggle() {
     this.showDetails = !this.showDetails;
   }
+
 }

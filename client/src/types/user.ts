@@ -3,15 +3,8 @@ export type User = {
   displayName: string;
   email: string;
   token: string;
-  image?: string;
-}
-
-export interface IUser {
-  username: string;
-  displayName: string;
-  email: string;
-  token: string;
-  image?: string;
+  imageUrl?: string;
+  roles: string[];
 }
 
 export type LoginCreds = {
@@ -19,3 +12,12 @@ export type LoginCreds = {
   password: string;
 }
 
+export type RegisterCreds = {
+  email: string;
+  displayName: string;
+  password: string;
+  gender: string;
+  birthDay: string;
+  city: string;
+  country: string;
+}
